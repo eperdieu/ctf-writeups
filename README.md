@@ -120,3 +120,29 @@ picoCTF is a free capture the flag platform from Carnegie Mellon University. Fla
 1. Download and extract the archive
 2. Open PowerShell in the extracted folder
 3. Run a recursive search for the flag text:
+
+   `ls -r | sls "picoCTF"`
+
+**Lessons learned**
+* Use a recursive search tool when a task has thousands of files
+* PowerShell has an equivalent for grep: Select-String, or sls for short
+* Know the tool for your operating system before you start
+
+---
+
+## Crack the Gate 1
+
+**Goal:** Get into a restricted web portal when you know the login email but not the password.
+
+**What I did:** I first tried common credentials and checked DevTools, and neither worked. Viewing the raw page source showed a scrambled comment at the top of the page. It was ROT13, and decoding it revealed a developer note about a bypass that used a custom HTTP header. I sent a login request with curl and that header, first to the wrong path, which returned an error, then to the login path, which succeeded.
+
+**Steps**
+1. View the page source with Ctrl+U
+2. Decode the scrambled comment with a ROT13 tool
+3. Send a login request with curl that adds the header from the note
+4. Use the login path of the app, not the main page
+
+**Lessons learned**
+* Always read the raw page source, because DevTools does not show everything
+* Encoded notes in source code can reveal authentication bypasses
+* A custom
