@@ -145,4 +145,8 @@ picoCTF is a free capture the flag platform from Carnegie Mellon University. Fla
 **Lessons learned**
 * Always read the raw page source, because DevTools does not show everything
 * Encoded notes in source code can reveal authentication bypasses
-* A custom
+* A custom header used as a backdoor should never ship in production code
+
+---
+
+All challenges were solved on picoCTF for learning purposes.
